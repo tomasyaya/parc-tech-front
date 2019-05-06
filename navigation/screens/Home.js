@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import { getAllTodos } from '../../store/actions/actions';
+import { getAllTodos, sortAllTodos } from '../../store/actions/actions';
 import TodoForm from '../../components/todoForm/TodoForm';
 import todoService from '../../service/todoService';
+import DisplayTodos from '../../components/displayTodo/DisplayTodo';
 
 
 class Home extends Component {
@@ -11,15 +12,25 @@ class Home extends Component {
     title: 'Home'
   }
 
-  componentDidMount = async () => {
-    await this.props.getAllTodos()
+  componentDidMount = () => {
+    this.fillTodos()
+  }
+
+  fillTodos = async () => {
+    const { getAllTodos, sortAllTodos } = this.props;
+    try {
+      await getAllTodos()
+      sortAllTodos()
+    } catch(err) {
+      console.log(err)
+    }
   }
   
   render() {
-    console.log(this.props.todos)
     return (
       <View style={styles.container}>
         <TodoForm />
+        <DisplayTodos />
       </View>
     );
   }
@@ -28,7 +39,7 @@ class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
   }
 })
@@ -36,8 +47,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
   return {
-    todos: state.todos.todos 
+    todos: state.todos.todos,
+    done: state.todos.done 
   }
 }
 
-export default connect(mapStateToProps, { getAllTodos })(Home)
+export default connect(mapStateToProps, { getAllTodos, sortAllTodos })(Home)

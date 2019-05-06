@@ -1,5 +1,5 @@
 
-import { GET_TODOS } from './actionTypes';
+import { GET_TODOS, SORT_TODOS } from './actionTypes';
 import todoService from '../../service/todoService';
 
 export const getAllTodos =  () => async (dispatch) => {
@@ -14,3 +14,8 @@ export const getAllTodos =  () => async (dispatch) => {
   }
 }
 
+export const sortAllTodos = () => (dispatch) => {
+  dispatch({
+    type: SORT_TODOS
+  })
+}

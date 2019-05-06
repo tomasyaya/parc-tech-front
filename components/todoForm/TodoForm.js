@@ -31,11 +31,11 @@ class TodoForm extends Component {
   }
 
   render() {
-    const { input } = styles;
+    const { input,container } = styles;
     const { title, body, emptyField, errMessage } = this.state;
     const message = emptyField ? <Text> {errMessage} </Text> : null
     return (
-      <View>
+      <View style={container}>
         <Text> Add Todo </Text>
         {message}
         <TextInput
