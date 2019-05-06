@@ -1,6 +1,33 @@
 import axios from 'axios';
 
-const api = axios.create({
-  baseURL: 'http://192.168.1.40:4000/api/v1',
-  withCredentials: true
-});
+class TodoService {
+  constructor() {
+    this.api = axios.create({
+      baseURL: 'http://localhost:4000/api/v1',
+      withCredentials: true
+    });
+  }
+
+  getTodos = () => {
+    return this.api.get(`/todos`)
+      .then(({data}) => data)
+  }
+ 
+  createTodo = async (body) => {
+    return this.api.post(`/todos/`, body)
+      .then(({data}) => data)
+  }
+
+  deleteTodo = (id) => {
+    return this.api.delete(`/todos/${id}`)
+      .then(({data}) => data)
+  }
+  
+  doneTodo = (id, body) => {
+    return this.api.put(`/todos/${id}`, body)
+      .then(({data}) => data)
+  }
+}
+
+const todoService = new TodoService();
+export default todoService;

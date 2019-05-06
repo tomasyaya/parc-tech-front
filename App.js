@@ -11,7 +11,7 @@ const store = configureStore()
 export default class App extends Component {
   
   render() {
-    console.log(AppNavigator)
+    
     return (
       <Provider store={store}>
           <AppNavigator />
