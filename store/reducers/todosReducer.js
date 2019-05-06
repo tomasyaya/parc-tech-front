@@ -1,7 +1,7 @@
 import { GET_TODOS } from '../actions/actionTypes';
 
 const initialState = {
-  todos: ''
+  todos: 'hellooooooooo'
 }
 
 export default todosRedycer = (state = initialState, action) =>{

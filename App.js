@@ -1,23 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import configureStore from './store/store';
-import axios from 'axios';
+import AppNavigator from './navigation/main';
+
 
 const store = configureStore()
 
-export default class App extends React.Component {
+
+export default class App extends Component {
   
   render() {
-    
+    console.log(AppNavigator)
     return (
       <Provider store={store}>
-        <View >
-          <Text>Hello</Text>
-        </View>
+          <AppNavigator />
       </Provider>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+})
 
 
