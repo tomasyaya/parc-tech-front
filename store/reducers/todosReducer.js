@@ -7,7 +7,6 @@ const initialState = {
 export default todosRedycer = (state = initialState, action) =>{
   switch(action.type){
     case GET_TODOS:
-    console.log(action.payload)
      return {
        ...state,
       todos: [...action.payload]

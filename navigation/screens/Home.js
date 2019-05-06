@@ -16,7 +16,7 @@ class Home extends Component {
   }
   
   render() {
-    
+    console.log(this.props.todos)
     return (
       <View style={styles.container}>
         <TodoForm />

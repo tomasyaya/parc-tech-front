@@ -8,12 +8,17 @@ class TodoService {
     });
   }
 
-  getTodos = () => {
-    return this.api.get(`/todos`)
-      .then(({data}) => data)
+  getTodos = async () => {
+    try {
+      const { data } = await this.api.get(`/todos`)
+      return data
+    } catch(err) {
+      console.log(err)
+    }
   }
  
-  createTodo = async (body) => {
+  createTodo = (body) => {
+
     return this.api.post(`/todos/`, body)
       .then(({data}) => data)
   }
