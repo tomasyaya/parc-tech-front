@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button, ImageBackground } from 'react-native';
-import BackgroundImage from '../../components/backgroundImage/BackgroundImage';
+import { Text, StyleSheet, Button, ImageBackground } from 'react-native';
+
 
 
 class Splash extends Component {

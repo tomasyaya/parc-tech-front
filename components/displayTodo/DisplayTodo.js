@@ -6,12 +6,12 @@ import TodoList from '../todoList/TodoList';
 
 const DisplayTodo = (props) => {
   const { undone, done } = props;
-  const { container } = styles;
+  const { container, title } = styles;
   return(
     <View style={container}>
-      <Text> Todo! </Text>
+      <Text style={title}> Todo! </Text>
       <TodoList data={undone} />
-      <Text> Done! </Text>
+      <Text style={title}> Done! </Text>
       <TodoList data={done} />
     </View>
   )

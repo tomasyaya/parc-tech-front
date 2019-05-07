@@ -7,11 +7,15 @@ export const styles = StyleSheet.create({
   },
   input: {
     height: 30,
-    width: 170,
+    width: 250,
     marginVertical: 10,
     paddingLeft: 10,
     borderWidth: 1,
     borderColor: 'gray',
     borderRadius: 5,
+    color: 'white',
+  },
+  btn: {
+    fontWeight: 'bold'
   }
 })

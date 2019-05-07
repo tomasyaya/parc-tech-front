@@ -36,27 +36,29 @@ class TodoForm extends Component {
   }
 
   render() {
-    const { input,container } = styles;
+    const { input, container, btn } = styles;
     const { title, body, emptyField, errMessage } = this.state;
     const message = emptyField ? <Text> {errMessage} </Text> : null
     return (
       <View style={container}>
-        <Text> Add Todo </Text>
         {message}
         <TextInput
           style={input}
           value={title}
           placeholder="title"
+          placeholderTextColor="#E8E8E8"
           onChangeText={val => this.setState({title: val, emptyField: false})}
         />
         <TextInput
           style={input}
           value={body}
           placeholder="message"
+          placeholderTextColor="#E8E8E8"
           onChangeText={val => this.setState({body: val, emptyField: false})}
         />
         <Button
-          title="Add"
+          color="#bafcb0"
+          title="ADD"
           onPress={this.handlePress}
         />
       </View>

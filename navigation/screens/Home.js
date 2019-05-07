@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
 import { getAllTodos, sortAllTodos } from '../../store/actions/actions';
 import TodoForm from '../../components/todoForm/TodoForm';
-import todoService from '../../service/todoService';
 import DisplayTodos from '../../components/displayTodo/DisplayTodo';
+
 
 
 class Home extends Component {
@@ -27,11 +27,12 @@ class Home extends Component {
   }
   
   render() {
+    const { container } = styles
     return (
-      <View style={styles.container}>
+      <ImageBackground source={require('../../assets/typemachine.jpg')} style={container}>
         <TodoForm />
         <DisplayTodos />
-      </View>
+      </ImageBackground>  
     );
   }
 }
@@ -41,6 +42,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
+    height: '100%',
+    width: '100%'
   }
 })
 

@@ -10,10 +10,10 @@ const AppNavigator = createStackNavigator({
     screen: Splash,
   }
 }, {
-  initialRouteName: 'Splash',
+  initialRouteName: 'Home',
   defaultNavigationOptions: {
     headerStyle: {
-      backgroundColor: 'green',
+      backgroundColor: '#bafcb0',
     } 
   },
   mode: 'modal'
