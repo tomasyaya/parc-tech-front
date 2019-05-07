@@ -2,7 +2,8 @@ import { GET_TODOS, SORT_TODOS } from '../actions/actionTypes';
 
 const initialState = {
   todos: [],
-  done: []
+  done: [],
+  undone: []
 }
 
 export default todosRedycer = (state = initialState, action) =>{
@@ -15,7 +16,7 @@ export default todosRedycer = (state = initialState, action) =>{
     case SORT_TODOS:
       return {
         ...state,
-        todos: [...state.todos].filter(todo => todo.done === false),
+        undone: [...state.todos].filter(todo => todo.done === false),
         done: [...state.todos].filter(todo => todo.done === true)
       }
     default:

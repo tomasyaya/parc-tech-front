@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import { styles } from './style';
 import todoService from '../../service/todoService'
+import { connect } from 'react-redux';
+import { getAllTodos, sortAllTodos } from '../../store/actions/actions';
 
 class TodoForm extends Component {
   
@@ -14,6 +16,7 @@ class TodoForm extends Component {
 
   handlePress = async () => {
     const { title, body } = this.state;
+    const { getAllTodos, sortAllTodos } = this.props;
     if(!title || !body) {
       this.setState({ emptyField: true })
       return
@@ -25,6 +28,8 @@ class TodoForm extends Component {
         title: '',
         body: ''
       })
+      await getAllTodos()
+      await sortAllTodos()
     } catch(err) {
       console.log(err)
     }
@@ -60,4 +65,4 @@ class TodoForm extends Component {
 }
 
 
-export default TodoForm
+export default connect(null, { getAllTodos, sortAllTodos } )(TodoForm)

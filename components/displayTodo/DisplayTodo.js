@@ -1,29 +1,25 @@
-import React, { Component } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import React from 'react';
+import { View, Text } from 'react-native';
+import { styles } from './style';
 import { connect } from 'react-redux';
-import DisplayCard from '../displayCard/DisplayCard';
+import TodoList from '../todoList/TodoList';
 
 const DisplayTodo = (props) => {
-  const { todos, done } = props;
+  const { undone, done } = props;
+  const { container } = styles;
   return(
-    <View>
+    <View style={container}>
       <Text> Todo! </Text>
-      <FlatList
-        data={todos}
-        renderItem={( { item: { title, body } } ) => <DisplayCard title={title} body={body} />}
-      />
+      <TodoList data={undone} />
       <Text> Done! </Text>
-      <FlatList
-        data={done}
-        renderItem={( { item: { title, body } } ) => <DisplayCard title={title} body={body} />}
-      />
+      <TodoList data={done} />
     </View>
   )
 }
 
 const mapStateToProps = state => {
   return {
-    todos: state.todos.todos,
+    undone: state.todos.undone,
     done: state.todos.done
   }
 }

@@ -17,19 +17,26 @@ class TodoService {
     }
   }
  
-  createTodo = (body) => {
-
-    return this.api.post(`/todos/`, body)
-      .then(({data}) => data)
+  createTodo = async (body) => {
+    try {
+      const { data } = await this.api.post('/todos', body)
+      return data
+    } catch(err) {
+      console.log(err)
+    }
   }
 
-  deleteTodo = (id) => {
-    return this.api.delete(`/todos/${id}`)
-      .then(({data}) => data)
+  deleteTodo = async (id) => {
+    try {
+      const data = this.api.delete(`/todos/${id}`)
+      return data 
+    } catch(err) {
+      console.log(err)
+    }
   }
   
-  doneTodo = (id, body) => {
-    return this.api.put(`/todos/${id}`, body)
+  doneTodo = (id) => {
+    return this.api.put(`/todos/${id}`)
       .then(({data}) => data)
   }
 }
