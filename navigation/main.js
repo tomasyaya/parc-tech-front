@@ -1,21 +1,20 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Home from './screens/Home';
-import Favorite from './screens/Favorite';
+import Splash from './screens/Splash';
 
 const AppNavigator = createStackNavigator({
   Home: {
     screen: Home,
   },
-  Favorite: {
-    screen: Favorite,
+  Splash: {
+    screen: Splash,
   }
 }, {
-  initialRouteName: 'Home',
+  initialRouteName: 'Splash',
   defaultNavigationOptions: {
     headerStyle: {
       backgroundColor: 'green',
-    },
-    title: 'Nav',
+    } 
   },
   mode: 'modal'
 })
