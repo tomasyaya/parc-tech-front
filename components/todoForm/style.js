@@ -17,5 +17,11 @@ export const styles = StyleSheet.create({
   },
   btn: {
     fontWeight: 'bold'
+  },
+  errMss: {
+    color: 'red',
+    fontSize: 15,
+    textTransform: 'uppercase',
+    fontWeight: 'bold'
   }
 })

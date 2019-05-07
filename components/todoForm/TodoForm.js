@@ -36,9 +36,9 @@ class TodoForm extends Component {
   }
 
   render() {
-    const { input, container, btn } = styles;
+    const { input, container, errMss } = styles;
     const { title, body, emptyField, errMessage } = this.state;
-    const message = emptyField ? <Text> {errMessage} </Text> : null
+    const message = emptyField ? <Text style={errMss}> {errMessage} </Text> : null
     return (
       <View style={container}>
         {message}
