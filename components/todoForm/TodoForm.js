@@ -21,7 +21,7 @@ class TodoForm extends Component {
       this.setState({ emptyField: true })
       return
     }
-    const newTodo = { title, body, done: false }
+    const newTodo = { title, body, done: false, key: Math.random().toString() }
     try {
       await todoService.createTodo(newTodo)
       this.setState({
