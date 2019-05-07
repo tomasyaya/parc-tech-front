@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
-import { getAllTodos, sortAllTodos } from '../../store/actions/actions';
+import { getAllTodos, sortAllTodos, errMessage } from '../../store/actions/actions';
 import TodoForm from '../../components/todoForm/TodoForm';
 import DisplayTodos from '../../components/displayTodo/DisplayTodo';
 
@@ -17,12 +17,13 @@ class Home extends Component {
   }
 
   fillTodos = async () => {
-    const { getAllTodos, sortAllTodos } = this.props;
+    const { getAllTodos, sortAllTodos, errMessage, navigation } = this.props;
     try {
       await getAllTodos()
       sortAllTodos()
     } catch(err) {
-      console.log(err)
+      errMessage(err)
+      navigation.navigate('ErrScreen')
     }
   }
   
@@ -55,4 +56,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getAllTodos, sortAllTodos })(Home)
+export default connect(mapStateToProps, { getAllTodos, sortAllTodos, errMessage })(Home)

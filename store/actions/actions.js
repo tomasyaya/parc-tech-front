@@ -19,3 +19,11 @@ export const sortAllTodos = () => (dispatch) => {
     type: SORT_TODOS
   })
 }
+
+
+export const errMessage = (err) => (dispatch) => {
+  dispatch({
+    type: ERR_MSS,
+    payload: err
+  })  
+}

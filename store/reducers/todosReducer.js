@@ -1,9 +1,10 @@
-import { GET_TODOS, SORT_TODOS } from '../actions/actionTypes';
+import { GET_TODOS, SORT_TODOS, ERR_MSS } from '../actions/actionTypes';
 
 const initialState = {
   todos: [],
   done: [],
-  undone: []
+  undone: [],
+  message: ''
 }
 
 export default todosRedycer = (state = initialState, action) =>{
@@ -18,6 +19,11 @@ export default todosRedycer = (state = initialState, action) =>{
         ...state,
         undone: [...state.todos].filter(todo => todo.done === false),
         done: [...state.todos].filter(todo => todo.done === true)
+      }
+    case ERR_MSS:
+      return {
+        ...state,
+        message: action.payload
       }
     default:
     return state;
